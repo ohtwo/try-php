@@ -10,34 +10,48 @@
     </h1>
 
     <?php
-        $books = [
+    $books = [
             [
-                'name' => "Do Androids Dream of Electric Sheep",
-                'author' => "John Doe",
-                'purchaseUrl' => 'https://www.google.com/',
+                    'name' => "Do Androids Dream of Electric Sheep",
+                    'author' => "Philip K. Dick",
+                    'purchaseUrl' => 'https://www.amazon.com/Androids-Dream-Electric-Sheep-inspiration/dp/1780220383/',
+                    'releaseYear' => 1968
             ],
             [
-                'name' => 'The Langoliers',
-                'author' => "John Doe",
-                'purchaseUrl' => 'https://www.google.com/',
+                    'name' => 'The Langoliers',
+                    'author' => "Stephen King",
+                    'purchaseUrl' => 'https://www.amazon.com/Langoliers-Stephen-King/dp/1982136057',
+                    'releaseYear' => 1995
             ],
             [
-                'name' => "Hail Mary",
-                'author' => "John Doe",
-                'purchaseUrl' => 'https://www.google.com/',
+                    'name' => "Project Hail Mary",
+                    'author' => "Andy Weir",
+                    'purchaseUrl' => 'https://www.amazon.com/Project-Hail-Mary-Andy-Weir/dp/0593135202/',
+                    'releaseYear' => 2021
             ],
-        ];
+    ];
+
+    function filterByAuthor($books, $author) {
+        $filteredBooks = [];
+
+        foreach ($books as $book) {
+            if ($book['author'] === $author) {
+                $filteredBooks[] = $book;
+            }
+        }
+
+        return $filteredBooks;
+    }
     ?>
 
     <ul>
-        <?php foreach ($books as $book): ?>
+        <?php foreach (filterByAuthor($books, 'Stephen King') as $book) : ?>
             <li>
                 <a href="<?= $book['purchaseUrl'] ?>">
-                <?= $book['name'] ?>
+                    <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
                 </a>
             </li>
         <?php endforeach; ?>
     </ul>
-
 </body>
 </html>
