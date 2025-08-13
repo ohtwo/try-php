@@ -1,0 +1,16 @@
+{
+    "name": "ohtwo/try-php",
+    "authors": [
+        {
+            "name": "ohtwo",
+            "email": "hello@tinygram.dev"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
